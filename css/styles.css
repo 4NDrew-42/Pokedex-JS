@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    display: flex;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #5e4bca;
+    margin: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #8a3535;
+    padding-top: 33px;
+    margin: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    color: blue;
+    flex-direction: column;
+}
