@@ -1,7 +1,6 @@
-alert('Hello world');
+let pokemonList = [
+    {name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison']},
+    {name: 'Charmander', height: 0.6, types: ['fire']},
+    {name: 'Squirtle', height: 0.5, types: ['water']},
+] ;
 
-let favoriteFood = 'sushi'; // I particularly like uni nigiri, and saba nigiri
-document.write(favoriteFood); 
-
-let simpleAddition = 1 + 1; 
-document.write(simpleAddition);
