@@ -26,21 +26,19 @@ body {
     width: calc(100vw - 40px);
     max-width: 444px;
     min-width: 200px;
-    aspect-ratio: 1;
+    /* Removed aspect-ratio to avoid squeezing */
+    gap: 20px;
 }
 
 .pokeball-placeholder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 77%; 
-    height: 77%;
-    padding-top: 50%; 
+    position: relative; /* Adjusted to relative */
+    width: 100%; /* Adjusted to 100% */
+    padding-top: 100%; /* Adjusted to 100% to maintain the circle shape */
     background: linear-gradient(180deg, #f00 50%, #fff 50%);
     border-radius: 50%;
     border: 2px solid #000;
     box-sizing: border-box; 
+    margin: 20px 0; /* Added to give space above and below */
 }
 
 .pokeball-placeholder:before {
@@ -57,7 +55,6 @@ body {
     box-sizing: border-box; 
 }
 
-
 h1 {
     position: absolute;
     top: 20px;
@@ -69,29 +66,25 @@ h1 {
 }
 
 #findPokemonSection {
-    position: absolute;
-    padding-left: 60px;
-    bottom: 20px; 
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative; /* Adjusted to relative */
+    width: 100%; /* Added to center the section */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: center; /* Added to center the children */
     gap: 20px;
     z-index: 1;
+    padding: 0 20px; /* Added padding to match the main section */
 }
 
 #findPokemonSection input {
+    flex: 1; /* Added to make the input take up available space */
     padding: 5px;
     font-size: 0.8rem;
-    width: calc(150px + 10px); 
     border-radius: 5px;
     border: 1px solid #ccc;
     text-align: center; 
 }
 
 #findPokemonSection button {
-    position: relative;
     padding: 5px 10px;
     font-size: 0.8rem;
     border-radius: 5px;
@@ -101,29 +94,19 @@ h1 {
     cursor: pointer;
 }
 
-
 #findPokemonSection button:hover {
     background-color: #4b3db2;
 }
 
-p {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #8a3535;
-    padding-top: .5rem;
-    margin: 1rem;
-    text-align: center;
-}
-
 #pokemonListSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: calc(100vw - 40px); /* Set the width to match the .main section */
+    max-width: 444px; /* Set the max-width to match the .main section */
+    min-width: 200px; /* Set the min-width to match the .main section */
+    background-color: rgb(146, 146, 146);
 }
 
 #pokemonResult {
-    position: absolute;
-    bottom: 18%;
+    position: relative; /* Adjusted to relative */
     width: 100%;
     text-align: center;
     font-size: 0.8rem;

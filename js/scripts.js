@@ -42,6 +42,7 @@ let pokemonRepository = (function () {
         getAll: getAll,
         findByName: findByName
       };
+      
     })();
 
     document.getElementById('findPokemonButton').addEventListener('click', function() {
@@ -75,5 +76,9 @@ let pokemonRepository = (function () {
 // Displaying the pokemonList in the page
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-    document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')' + '</p>');
-    });
+  const pokemonListSection = document.getElementById('pokemonListSection');
+  const pokemonElement = document.createElement('p');
+  pokemonElement.textContent = `${pokemon.name} (height: ${pokemon.height})`;
+  pokemonListSection.appendChild(pokemonElement);
+});
+
