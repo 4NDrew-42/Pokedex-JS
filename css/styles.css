@@ -26,19 +26,18 @@ body {
     width: calc(100vw - 40px);
     max-width: 444px;
     min-width: 200px;
-    /* Removed aspect-ratio to avoid squeezing */
     gap: 20px;
 }
 
 .pokeball-placeholder {
-    position: relative; /* Adjusted to relative */
-    width: 100%; /* Adjusted to 100% */
-    padding-top: 100%; /* Adjusted to 100% to maintain the circle shape */
+    position: relative; 
+    width: 80%; 
+    padding-top: 80%; 
     background: linear-gradient(180deg, #f00 50%, #fff 50%);
-    border-radius: 50%;
+    border-radius: 70%;
     border: 2px solid #000;
     box-sizing: border-box; 
-    margin: 20px 0; /* Added to give space above and below */
+    margin: 40px auto auto auto; 
 }
 
 .pokeball-placeholder:before {
@@ -58,25 +57,42 @@ body {
 h1 {
     position: absolute;
     top: 20px;
-    font-size: 4rem;
+    font-size: 12vw;
     font-weight: 900;
     color: #000000;
     margin: 0;
     z-index: 1;
+   h1 {
+  font-size: 4vw; 
+}
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 16vw; 
+  }
 }
 
+@media (min-width: 501px) {
+  h1 {
+    font-size: 80px; 
+  }
+}
+
+
+
+
 #findPokemonSection {
-    position: relative; /* Adjusted to relative */
-    width: 100%; /* Added to center the section */
+    position: relative; 
+    width: 80%; 
     display: flex;
-    justify-content: center; /* Added to center the children */
+    justify-content: center; 
     gap: 20px;
     z-index: 1;
-    padding: 0 20px; /* Added padding to match the main section */
+    padding: 0 20px;
 }
 
 #findPokemonSection input {
-    flex: 1; /* Added to make the input take up available space */
+    flex: 1; 
     padding: 5px;
     font-size: 0.8rem;
     border-radius: 5px;
@@ -99,20 +115,29 @@ h1 {
 }
 
 #pokemonListSection {
-    width: calc(100vw - 40px); /* Set the width to match the .main section */
-    max-width: 444px; /* Set the max-width to match the .main section */
-    min-width: 200px; /* Set the min-width to match the .main section */
+    width: calc(100vw - 40px); 
+    max-width: 444px; 
+    min-width: 200px; 
     background-color: rgb(146, 146, 146);
 }
 
 #pokemonResult {
-    position: relative; /* Adjusted to relative */
     width: 100%;
-    text-align: center;
+    padding: 0; 
+    box-sizing: border-box; 
     font-size: 0.8rem;
     font-weight: bold;
     z-index: 1;
 }
+
+.pokemon-list {
+    width: 100%; 
+    padding: 0;  
+    margin: 0;  
+    box-sizing: border-box; 
+    list-style-type: none; 
+}
+
 
 #pokemonResult div {
     margin-bottom: 0.5rem;
@@ -121,3 +146,22 @@ h1 {
 #pokemonResult div p {
     margin: 0;
 }
+
+.button-class {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block; 
+    font-size: 16px;
+    margin: 4px 0;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid #4CAF50;
+    width: 100%; 
+ }
+ 
+  
