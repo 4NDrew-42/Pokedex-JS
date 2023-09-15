@@ -78,9 +78,6 @@ h1 {
   }
 }
 
-
-
-
 #findPokemonSection {
     position: relative; 
     width: 80%; 
@@ -164,4 +161,6 @@ h1 {
     width: 100%; 
  }
  
-  
+ .button-class:hover {
+    background-color: lightgrey;
+}
