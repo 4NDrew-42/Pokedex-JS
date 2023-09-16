@@ -65,6 +65,12 @@ let pokemonRepository = (function () {
       });
   }
 
+  // Hide the result div
+  function hideDetails() {
+    const resultDiv = document.getElementById('pokemonResult');
+    resultDiv.style.display = "none"; 
+}
+
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
         const resultDiv = document.getElementById('pokemonResult');
@@ -78,7 +84,7 @@ let pokemonRepository = (function () {
         shadowElement1.classList.add('shadow1');
         shadowElement2.classList.add('shadow2');
 
-        // Create the rest of the elements as before
+        // Create the other elements
         const imageElement = document.createElement('img');
         const pokemonElement = document.createElement('div');
         const nameElement = document.createElement('p');
@@ -94,7 +100,7 @@ let pokemonRepository = (function () {
         resultDiv.appendChild(shadowElement1);
         resultDiv.appendChild(shadowElement2);
 
-        // Append the other elements as before
+        // Append the other elements to the resultDiv
         pokemonElement.appendChild(imageElement);
         pokemonElement.appendChild(nameElement);
         pokemonElement.appendChild(heightElement);
@@ -102,8 +108,24 @@ let pokemonRepository = (function () {
         resultDiv.appendChild(pokemonElement);
 
         resultDiv.style.display = "block"; // Show the result div
+
+        // Adding event listener to hide details on 'esc' key press
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && resultDiv.style.display === "block") {
+                hideDetails();
+            }
+        });
+
+        // Adding event listener to hide details when clicking outside of the element
+        window.addEventListener('click', (e) => {
+             if (e.target !== resultDiv && !resultDiv.contains(e.target)) {
+                 hideDetails();
+             }
+          });
+      
     });
 }
+
 
 
   function getAll() {
