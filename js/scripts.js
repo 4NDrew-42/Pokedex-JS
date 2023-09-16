@@ -67,24 +67,44 @@ let pokemonRepository = (function () {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
-      const resultDiv = document.getElementById('pokemonResult');
-      resultDiv.innerHTML = '';
+        const resultDiv = document.getElementById('pokemonResult');
+        resultDiv.innerHTML = '';
 
-      const pokemonElement = document.createElement('div');
-      const nameElement = document.createElement('p');
-      const heightElement = document.createElement('p');
-      const typesElement = document.createElement('p');
+        // Create two new div elements for the shadows
+        const shadowElement1 = document.createElement('div');
+        const shadowElement2 = document.createElement('div');
 
-      nameElement.textContent = `Name: ${pokemon.name}`;
-      heightElement.textContent = `Height: ${pokemon.height}`;
-      typesElement.textContent = `Types: ${pokemon.types.join(', ')}`;
+        // Add classes to the shadow elements for styling in CSS
+        shadowElement1.classList.add('shadow1');
+        shadowElement2.classList.add('shadow2');
 
-      pokemonElement.appendChild(nameElement);
-      pokemonElement.appendChild(heightElement);
-      pokemonElement.appendChild(typesElement);
-      resultDiv.appendChild(pokemonElement);
+        // Create the rest of the elements as before
+        const imageElement = document.createElement('img');
+        const pokemonElement = document.createElement('div');
+        const nameElement = document.createElement('p');
+        const heightElement = document.createElement('p');
+        const typesElement = document.createElement('p');
+
+        imageElement.src = `${pokemon.imageUrl}`;
+        nameElement.textContent = `${pokemon.name.toUpperCase()}`;
+        heightElement.textContent = `Height: ${pokemon.height}`;
+        typesElement.textContent = `Types: ${pokemon.types.join(', ')}`;
+
+        // Append the shadow elements to the resultDiv first, so they appear below the other elements
+        resultDiv.appendChild(shadowElement1);
+        resultDiv.appendChild(shadowElement2);
+
+        // Append the other elements as before
+        pokemonElement.appendChild(imageElement);
+        pokemonElement.appendChild(nameElement);
+        pokemonElement.appendChild(heightElement);
+        pokemonElement.appendChild(typesElement);
+        resultDiv.appendChild(pokemonElement);
+
+        resultDiv.style.display = "block"; // Show the result div
     });
-  }
+}
+
 
   function getAll() {
     return pokemonList;
@@ -110,42 +130,41 @@ let pokemonRepository = (function () {
 })();
 
 document.getElementById('findPokemonButton').addEventListener('click', function () {
-  const pokemonName = document.getElementById('pokemonName').value;
-  const results = pokemonRepository.findByName(pokemonName);
+    const pokemonName = document.getElementById('pokemonName').value;
+    const results = pokemonRepository.findByName(pokemonName);
 
-  const resultDiv = document.getElementById('pokemonResult');
-  resultDiv.innerHTML = '';  
+    const resultDiv = document.getElementById('pokemonResult');
+    resultDiv.innerHTML = '';  
 
-  if (results.length > 0) {
-    results.forEach(pokemon => {
-      pokemonRepository.loadDetails(pokemon).then(() => {
-        const pokemonElement = document.createElement('div');
-        const nameElement = document.createElement('p');
-        const heightElement = document.createElement('p');
-        const typesElement = document.createElement('p');
+    if (results.length > 0) {
+        results.forEach(pokemon => {
+            pokemonRepository.loadDetails(pokemon).then(() => {
+                const pokemonElement = document.createElement('div');
+                const nameElement = document.createElement('p');
+                const heightElement = document.createElement('p');
+                const typesElement = document.createElement('p');
 
-        nameElement.textContent = `Name: ${pokemon.name}`;
-        heightElement.textContent = `Height: ${pokemon.height}`;
-        typesElement.textContent = `Types: ${pokemon.types.join(', ')}`;
+                nameElement.textContent = `Name: ${pokemon.name}`;
+                heightElement.textContent = `Height: ${pokemon.height}`;
+                typesElement.textContent = `Types: ${pokemon.types.join(', ')}`;
 
-        pokemonElement.appendChild(nameElement);
-        pokemonElement.appendChild(heightElement);
-        pokemonElement.appendChild(typesElement);
-        resultDiv.appendChild(pokemonElement);
-      });
-    });
-  } else {
-    resultDiv.textContent = 'No Pokémon found with that name.';
-  }
+                pokemonElement.appendChild(nameElement);
+                pokemonElement.appendChild(heightElement);
+                pokemonElement.appendChild(typesElement);
+                resultDiv.appendChild(pokemonElement);
+            });
+        });
+    } else {
+        resultDiv.textContent = 'No Pokémon found with that name.';
+    }
 });
 
 pokemonRepository.loadList().then(function () {
   let pokemonAll = pokemonRepository.getAll();
   const INITIAL_LOAD_COUNT = 31;
   let topIndex = 0;  
-  let bottomIndex = INITIAL_LOAD_COUNT;  // Initialize bottomIndex to point to the item next to the last item loaded initially
+  let bottomIndex = INITIAL_LOAD_COUNT;
 
-  // Load initial set of items
   for (let i = 0; i < INITIAL_LOAD_COUNT; i++) {
     pokemonRepository.addListItem(pokemonAll[i]);
   }
@@ -156,34 +175,28 @@ pokemonRepository.loadList().then(function () {
     let lastChild = pokemonListElement.lastChild;
     let firstChild = pokemonListElement.firstChild;
   
-    // If close to the bottom, load more items at the bottom
     if (lastChild.getBoundingClientRect().bottom <= pokemonListElement.getBoundingClientRect().bottom + lastChild.clientHeight) {
       if (bottomIndex < pokemonAll.length) {
         pokemonRepository.addListItem(pokemonAll[bottomIndex]);
         bottomIndex++;
         if (pokemonListElement.children.length > INITIAL_LOAD_COUNT) {
           pokemonListElement.removeChild(firstChild);
-          topIndex++;  // Adjust topIndex when removing an item at the top
+          topIndex++;
         }
       }
     }
   
-    // If close to the top, load more items at the top (and adjust the scroll position to prevent a jump)
     if (firstChild.getBoundingClientRect().top >= pokemonListElement.getBoundingClientRect().top) {
       if (topIndex > 0) {
-        topIndex--;  // Adjust topIndex before adding a new item at the top
+        topIndex--;
         const newFirstItem = pokemonRepository.addListItem(pokemonAll[topIndex]);
         pokemonListElement.insertBefore(newFirstItem, firstChild);
         if (pokemonListElement.children.length > INITIAL_LOAD_COUNT) {
           pokemonListElement.removeChild(lastChild);
-          bottomIndex--;  // Adjust bottomIndex when removing an item at the bottom
+          bottomIndex--;
         }
         pokemonListElement.scrollTop += newFirstItem.clientHeight;
       }
     }
   });
-  
 });
-
-
-
