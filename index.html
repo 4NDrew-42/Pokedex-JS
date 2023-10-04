@@ -3,28 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/ayx7ccu.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/ayx7ccu.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <title>Pokedex JS</title>
   </head>
   <body>
     <section class="main">
-      <div class="pokemonLogo" src="images/Pok&#xE9;mon_logo_English.webp" alt="pokemonlogo">
-        <img src="images/Pok&#xE9;mon_logo_English.webp" alt="pokemonlogo">
+      <div class="pokemonLogo">
+        <div class="poketext" id="pokedextext">Pokedex</div>
+        <div class="poketext" id="pokedextext2">Pokedex</div>
+        <div class="poketext" id="pokedextext3">Pokedex</div>
+        <img src="images/Pok&#xE9;mon_logo_English.webp" alt="pokemonlogo" />
       </div>
+
+
       <div class="pokeball-placeholder">
         <div id="pokemonResult"></div>
       </div>
-      <div id="pokedextext">Pokedex</div>
-      <div id="pokedextext2">Pokedex</div>
-      <div id="pokedextext3">Pokedex</div>
-      
+
+    </section>
+
+<section class="pokemonInfo">
+
       <div id="findPokemonSection">
         <input type="text" id="pokemonName" placeholder="Find a Pokémon" />
         <button id="findPokemonButton">Find</button>
       </div>
-
+</section>
+<section class="pokemonList">
       <ul class="pokemon-list"></ul>
       <!--  <div id="pokemonListSection"></div> -->
     </section>
@@ -33,8 +43,3 @@
     <script src="js/scripts.js"></script>
   </body>
 </html>
-
-
-
-
-
