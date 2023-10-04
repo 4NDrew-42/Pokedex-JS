@@ -56,7 +56,7 @@ let pokemonRepository = (function () {
     return fetch(url)
       .then(response => response.json())
       .then(details => {
-        item.imageUrl = details.sprites.front_default;
+        item.imageUrl = details.sprites.other['official-artwork'].front_default;
         item.height = details.height;
         item.types = details.types.map(type => type.type.name);
       })
