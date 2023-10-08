@@ -7,7 +7,7 @@
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 body {
@@ -19,16 +19,51 @@ body {
   background-color: #f0f0f0;
 }
 
-.pokemonLogo {
-  position: relative;
-  margin-top: -50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform: scale(0.4);
+h1 {
+  position: absolute;
+  top: 20px;
+  font-size: 12vw;
+  font-weight: 900;
+  color: #000000;
+  margin: 0;
+  z-index: 1;
 }
-/* Main Container Styles */
+
+/* Button Styles */
+
+.button-class {
+  font-family: "bitcount-mono-single-circle", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  background-color: rgba(255, 0, 0, 0.493);
+  color: rgb(255, 251, 0);
+  padding: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 195px;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+  margin: 0px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.button-class:hover {
+  background-color: rgba(182, 27, 0, 0.774);
+}
+
+.button-class img {
+  display: block;
+  margin: -25px auto; 
+  max-width: 100%;  /* This ensures the image doesn't take the full width, adjust as needed */
+}
+
+
 .main {
   background-image: url("/images/vanilla_base.webp");
   background-size: 540px 1170px;
@@ -37,7 +72,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -47,42 +81,31 @@ body {
   gap: 20px;
 }
 
-.pokemonInfo {
-    
-    background-size: 540px 1170px;
-    background-repeat: no-repeat;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  background-color: #5e4bca;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(100vw - 40px);
-    max-width: 540px;
-    min-width: 300px;
-    gap: 20px;
-  }
-  
-  .pokemonList {
-    
-    background-size: 540px 1170px;
-    background-repeat: no-repeat;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #858585;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(100vw - 40px);
-    max-width: 540px;
-    min-width: 300px;
-    gap: 20px;
-  }
-/* Pokeball Placeholder Styles */
+/* Pokémon List Styles */
+.pokemon-list {
+  display: flex;
+  padding: 10px;
+  margin: 5px;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 150px;
+  width: 90%;
+  scroll-snap-type: x mandatory;
+}
+
+.pokemon-list::-webkit-scrollbar {
+  display: none;
+}
+
+.pokemon-list li {
+  scroll-snap-align: start;
+  padding: 10px;
+  min-width: 140px;
+  max-width: 145px;
+  height: 205px;
+}
+
 .pokeball-placeholder {
   background-image: url("/images/pokeball2x.webp");
   background-position: center;
@@ -94,141 +117,57 @@ body {
   background-size: 80%;
   background-repeat: no-repeat;
   width: 100%;
-  padding-top: 100%;
-  z-index: 1;
-  margin-top: -220px;
+  padding-top: 80%;
+  z-index: 0;
+  margin-top: -175px;
 }
 
-/* Pokémon Result Styles */
-#pokemonResult {
-  position: absolute;
-  top: 49%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 74%;
-  height: 74%; /* Set the height equal to the width */
-  text-align: center;
-  z-index: 3;
+.pokemonInfo {
+  position: relative;
   display: flex;
-  color: #000000;
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: rgb(255, 255, 255, 0.5);
-  background: radial-gradient(circle, rgb(255, 255, 255, .20) 10%, rgba(50, 91, 124, 0.9) 90%);
-  border-radius: 50%;
-  padding: 0px;
-  box-sizing: border-box; /* This will include padding in the width and height */
+  flex-direction: column;
+  align-items: center;
+  background-color: #006eff62;
+  padding: 10px;
+  margin: 10px, 0px, 0px, 0px;
+  margin-top: -40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#pokemonResult .shadow1 {
-  background-color: rgba(0, 0, 0);
-  z-index: 2; /* Positioned below the pokemonElement */
-}
-
-#pokemonResult img {
+.pokemonList {
+  background-size: 540px 1170px;
+  background-repeat: no-repeat;
   position: relative;
-  top: 05%;
-  width: 80%; /* Set image width to 50% */
-  margin-top: 1%; /* Adjust margin to move p elements up */
-  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eeeeee56;
+  padding-top: 75px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(100vw - 40px);
+  max-width: 540px;
+  min-width: 300px;
+  gap: 20px;
 }
+/* Pokeball Placeholder Styles */
 
-#pokemonResult div {
-  margin-bottom: 30px;
-}
-
-#pokemonResult div p {
-  position: relative;
-  bottom: 40px;
-  margin-bottom: 0%;
-  z-index: 4;
-}
-*/ #pokemonResult div p:nth-of-type(1) {
-  font-size: 1.5rem; /* Larger font size for name */
-  /*margin-bottom: 0%; /* Space between name and other details */
-}
-#pokemonResult div p:nth-of-type(2),
-#pokemonResult div p:nth-of-type(3) {
-  font-size: 1rem; /* Smaller font size for height and types */
-  margin-top: 0%;
-}
-
-/* Header Styles */
-h1 {
-  position: absolute;
-  top: 20px;
-  font-size: 12vw;
-  font-weight: 900;
-  color: #000000;
-  margin: 0;
-  z-index: 1;
-}
-
-/* Adjust the scale for medium screens */
-
-@media (min-width: 250px) {
-  .pokemonLogo {
-    transform: scale(0.17); /* Adjusted scaling for medium screens */
-  }
-}
-@media (min-width: 368px) {
 .pokemonLogo {
-    transform: scale(0.25); /* Adjusted scaling for medium screens */
-  }
+  position: relative;
+  margin-top: -150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.4);
+  z-index: 15;
 }
 
-/* Adjust the scale for larger screens */
-@media (min-width: 465px) {
-  .pokemonLogo {
-    transform: scale(0.3); /* Adjusted scaling for larger screens */
-  }
+.poketext {
+  position: absolute;
 }
 
-/* You can continue adding more breakpoints as necessary */
-@media (min-width: 1280px) {
-    .pokemonLogo {
-    transform: scale(1); /* Adjusted scaling for even larger screens */
-  }
-}
-
-@media (min-width: 250px) {
-    .pokemon-placeholder {
-      transform: scale(0.17); /* Adjusted scaling for medium screens */
-    }
-  }
-  @media (min-width: 368px) {
-    .pokemon-placeholder {
-      transform: scale(0.15); /* Adjusted scaling for medium screens */
-    }
-  }
-  
-  /* Adjust the scale for larger screens */
-  @media (min-width: 465px) {
-    .pokemon-placeholder {
-      transform: scale(0.7); /* Adjusted scaling for larger screens */
-    }
-  }
-  
-  /* You can continue adding more breakpoints as necessary */
-  @media (min-width: 1280px) {
-    .pokemonLogo {
-      transform: scale(1); /* Adjusted scaling for even larger screens */
-    }
-  }
-/*@media (max-width: 500px) {
-  h1 {
-    font-size: 16vw;
-  }
-}
-
-@media (min-width: 501px) {
-  h1 {
-    font-size: 80px;
-  }
-} */
-
-/* Find Pokémon Section Styles */
 #findPokemonSection {
   position: relative;
   width: 80%;
@@ -261,59 +200,6 @@ h1 {
   background-color: #4b3db2;
 }
 
-/* Pokémon List Section Styles */
-#pokemonListSection {
-  width: calc(100vw - 40px);
-  max-width: 400px;
-  min-width: 200px;
-  background-color: rgb(0, 0, 0);
-}
-
-/* Pokémon List Styles */
-.pokemon-list {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  overflow-y: hidden;
-  min-height: 200px;
-  width: 100%;
-  scroll-snap-type: x mandatory;
-}
-
-.pokemon-list {
-  /* ... your existing styles ... */
-  scroll-snap-type: x mandatory;
-}
-
-.pokemon-list li {
-  /* ... your existing styles ... */
-  scroll-snap-align: start;
-}
-
-/* Button Styles */
-
-.button-class {
-  background-color: rgba(167, 166, 166, 0.548);
-  color: white;
-  padding: 5px;
-  text-align: center;
-  width: 280px;
-  height: 240px;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  margin: 5px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border-radius: 12px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.button-class:hover {
-  background-color: lightgrey;
-}
-
 #pokedextext {
   position: absolute;
   top: 380px;
@@ -327,7 +213,7 @@ h1 {
   z-index: 1;
   text-align: center;
   padding: 10px;
-  z-index: 3;
+  z-index: 13;
 }
 
 #pokedextext2 {
@@ -343,7 +229,7 @@ h1 {
   z-index: 1;
   text-align: center;
   padding: 10px;
-  z-index: 2;
+  z-index: 12;
 }
 
 #pokedextext3 {
@@ -360,9 +246,135 @@ h1 {
   z-index: 1;
   text-align: center;
   padding: 10px;
-  z-index: 1;
+  z-index: 10;
 }
 
-.poketext {
+/* Pokémon List Section Styles */
+#pokemonListSection {
+  width: calc(100vw - 40px);
+  max-width: 400px;
+  min-width: 200px;
+  background-color: rgb(0, 0, 0);
+}
+
+#pokemonName.error {
+    color: red;
+    font-weight: bold;
+}
+
+/* Pokémon Result Styles */
+#pokemonResult {
   position: absolute;
+  top: 51%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  width: 75%;
+  height: 92%; /* Set the height equal to the width */
+  text-align: center;
+  z-index: 3;
+  display: flex;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgb(255, 255, 255, 0.5);
+  background: radial-gradient(
+    circle,
+    rgb(236, 236, 236, 0.7) 30%,
+    rgb(255, 255, 255, 0.2) 90%
+  );
+  border-radius: 50%;
+  padding: 0px;
+  box-sizing: border-box; /* This will include padding in the width and height */
+  z-index: 2;
+}
+
+#pokemonResult .shadow1 {
+  background-color: rgba(0, 0, 0);
+  z-index: 2; /* Positioned below the pokemonElement */
+}
+
+#pokemonResult img {
+  position: relative;
+  top: 00%;
+  width: 75%; /* Set image width to 50% */
+
+  z-index: 3;
+}
+
+#pokemonResult div {
+  margin-bottom: 30px;
+}
+
+#pokemonResult div p {
+  position: relative;
+  bottom: 40px;
+  margin-bottom: 0%;
+  z-index: 4;
+}
+#pokemonResult div p:nth-of-type(1) {
+  font-size: 1.5rem; /* Larger font size for name */
+  /*margin-bottom: 0%; /* Space between name and other details */
+}
+#pokemonResult div p:nth-of-type(2),
+#pokemonResult div p:nth-of-type(3) {
+  font-size: 1rem; /* Smaller font size for height and types */
+  margin-top: 0%;
+}
+
+#info {
+  margin-bottom: 30px;
+  margin: 20px;
+  padding: 20px;
+}
+
+/* Adjust the scale for medium screens */
+
+@media (min-width: 250px) {
+  .pokemonLogo {
+    transform: scale(0.17); /* Adjusted scaling for medium screens */
+  }
+}
+@media (min-width: 368px) {
+  .pokemonLogo {
+    transform: scale(0.25); /* Adjusted scaling for medium screens */
+  }
+}
+
+/* Adjust the scale for larger screens */
+@media (min-width: 465px) {
+  .pokemonLogo {
+    transform: scale(0.3); /* Adjusted scaling for larger screens */
+  }
+}
+
+/* You can continue adding more breakpoints as necessary */
+@media (min-width: 1280px) {
+  .pokemonLogo {
+    transform: scale(1); /* Adjusted scaling for even larger screens */
+  }
+}
+
+@media (min-width: 250px) {
+  .pokemon-placeholder {
+    transform: scale(0.17); /* Adjusted scaling for medium screens */
+  }
+}
+@media (min-width: 368px) {
+  .pokemon-placeholder {
+    transform: scale(0.15); /* Adjusted scaling for medium screens */
+  }
+}
+
+/* Adjust the scale for larger screens */
+@media (min-width: 465px) {
+  .pokemon-placeholder {
+    transform: scale(0.3); /* Adjusted scaling for larger screens */
+  }
+}
+
+/* You can continue adding more breakpoints as necessary */
+@media (min-width: 1280px) {
+  .pokemonLogo {
+    transform: scale(0.41); /* Adjusted scaling for even larger screens */
+  }
 }
