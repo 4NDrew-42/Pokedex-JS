@@ -27,6 +27,16 @@ let pokemonRepository = (function () {
     const img = document.createElement("img");
     const span = document.createElement("span"); // To hold the Pokémon name
 
+    // Add the 'list-group-item' class to the 'li' element
+    listItem.classList.add("list-group-item");
+
+    // Add the Bootstrap button utility classes to the button element
+    button.classList.add("btn", "btn-primary");
+
+    // Add the data-target and data-toggle attributes to the button element
+    button.setAttribute("data-bs-toggle", "modal");
+    button.setAttribute("data-bs-target", "#pokedexModal");
+
     // Initially, the image is hidden until we fetch its URL
     img.style.display = "none";
 
@@ -291,3 +301,5 @@ pokemonRepository.loadList().then(function () {
     }
   });
 });
+
+

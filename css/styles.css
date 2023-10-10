@@ -30,7 +30,9 @@ h1 {
 }
 
 /* Button Styles */
-
+.button {
+  font-family: "bitcount-mono-single-circle", sans-serif;
+}
 .button-class {
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 700;
@@ -63,6 +65,9 @@ h1 {
   max-width: 100%;  /* This ensures the image doesn't take the full width, adjust as needed */
 }
 
+.list-group-item {
+  background-color: transparent;
+}
 
 .main {
   background-image: url("/images/vanilla_base.webp");
@@ -79,6 +84,24 @@ h1 {
   max-width: 540px;
   min-width: 300px;
   gap: 20px;
+}
+
+.navbar {
+  min-width: 400px;
+  max-width: none;
+}
+
+.navbar-brand {
+  font-family: "bitcount-mono-single-circle", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  color: #e9e8e8;
+  margin: 0;
+  z-index: 1;
+  text-align: center;
+  padding: 10px;
+  z-index: 10;
 }
 
 /* Pokémon List Styles */
@@ -166,6 +189,7 @@ h1 {
 
 .poketext {
   position: absolute;
+  font-size: 50px;
 }
 
 #findPokemonSection {
@@ -207,7 +231,7 @@ h1 {
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 200;
   font-style: normal;
-  font-size: 120px;
+  font-size: 170px;
   color: #f4ff5a;
   margin: 0;
   z-index: 1;
@@ -223,7 +247,7 @@ h1 {
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 120px;
+  font-size: 170px;
   color: #ff0000;
   margin: 0;
   z-index: 1;
@@ -240,10 +264,9 @@ h1 {
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 900;
   font-style: normal;
-  font-size: 120px;
+  font-size: 170px;
   color: #000000;
   margin: 0;
-  z-index: 1;
   text-align: center;
   padding: 10px;
   z-index: 10;
@@ -327,6 +350,18 @@ h1 {
   padding: 20px;
 }
 
+#navbar-font {
+  font-family: "bitcount-mono-single-circle", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: #e9e8e8;
+  margin: 0;
+  z-index: 1;
+  text-align: center;
+  padding: 10px;
+  z-index: 10;
+}
 /* Adjust the scale for medium screens */
 
 @media (min-width: 250px) {
