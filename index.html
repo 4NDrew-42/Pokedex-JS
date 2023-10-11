@@ -13,44 +13,43 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" id="navbar-font" href="#">2023 James Klein</a>
-        <div class="nav" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <button
-                id="navbar-font1"
-                class="nav-link btn btn-sm btn-outline-warning"
-                type="button"
-              >
-                POKEDEX
-              </button>
-            </li>
-            <li class="nav-item">
-              <button
-                id="navbar-font2"
-                class="nav-link btn btn-sm btn-outline-danger"
-                type="button"
-              >
-                ROCKET-DEX
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    
 
     <section class="main">
-      <div class="pokemonInfo">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" id="navbar-font" href="#">2023 James Klein</a>
+          <div class="nav" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button
+                  id="navbar-font1"
+                  class="nav-link btn btn-sm btn-outline-warning"
+                  type="button"
+                >
+                  POKEDEX
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  id="navbar-font2"
+                  class="nav-link btn btn-sm btn-outline-danger"
+                  type="button"
+                >
+                  ROCKET-DEX
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!--<div class="pokemonInfo"> -->
       <div id="findPokemonSection">
-        <input type="text" id="pokemonName" placeholder="Find a Pokémon" />
-        <button id="findPokemonButton">Find</button>
+        <!--<input type="text" id="pokemonName" placeholder="Find a Pokémon" /> -->
+        <div id="findPokemonButton"></div>
       </div>
-    </div>
-      <div class="pokemonLogo">       
+
+      <div class="pokemonLogo">
         <div class="poketext" id="pokedextext">Pokedex</div>
         <div class="poketext" id="pokedextext2">Pokedex</div>
         <div class="poketext" id="pokedextext3">Pokedex</div>
@@ -78,23 +77,8 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="pokedexModalLabel"></h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
           </div>
           <div class="modal-body"></div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-outline-warning"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
         </div>
       </div>
     </div>

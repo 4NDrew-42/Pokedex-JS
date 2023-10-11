@@ -66,27 +66,25 @@ let pokemonRepository = (function () {
     const modalBody = document.querySelector(".modal-body");
 
     modalBody.innerHTML = `
-        <div class="poketext threed-text-active poketext-effect-top">${
-          pokemon.name
-        }</div>
-        <div class="poketext poketext-effect-middle">${pokemon.name}</div>
-        <div class="poketext poketext-effect-bottom">${pokemon.name}</div>
-        <br>
         <div class="d-flex justify-content-center mb-3">
             <img src="${pokemon.imageUrl}" alt="${
       pokemon.name
     }" class="img-fluid">
         </div>
-        <div class="details-container">
-            <div class="detail"><strong>Height:</strong> ${pokemon.height}</div>
-            <div class="detail"><strong>Weight:</strong> ${pokemon.weight}</div>
-            <div class="detail"><strong>Abilities:</strong> ${pokemon.abilities
+        <div class="details-container bg-white p-3 rounded">
+            <div class=" poketext poketext-effect-middle threed-text-active" >${
+              pokemon.name
+            }</div>
+            <br>
+            <br>
+            <div class="detail">Height: ${pokemon.height}</div>
+            <div class="detail">Weight: ${pokemon.weight}</div>
+            <div class="detail">Abilities: ${pokemon.abilities
               .map((ability) => ability.ability.name)
               .join(", ")}</div>
         </div>
     `;
   }
-
 
   function loadList() {
     return fetch(apiUrl)
@@ -113,6 +111,7 @@ let pokemonRepository = (function () {
         item.sprites = details.sprites.front_default;
         item.imageUrl = details.sprites.other["official-artwork"].front_default;
         item.height = details.height;
+        item.weight = details.weight;
         item.types = details.types.map((type) => type.type.name);
         item.abilities = details.abilities; // Add this line
       })

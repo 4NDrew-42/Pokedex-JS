@@ -69,26 +69,29 @@ p {
 
 .button-class img {
   display: block;
-  margin: -25px auto; 
-  max-width: 100%;  /* This ensures the image doesn't take the full width, adjust as needed */
+  margin: -25px auto;
+  max-width: 100%; /* This ensures the image doesn't take the full width, adjust as needed */
 }
 
 .detail {
-  font-size: 200%;
+  font-size: 150%;
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 900;
+  margin-top: -10px;
 }
 
 .details-container {
   display: flex;
+  min-height: 120px;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .list-group-item {
   background-color: transparent;
+  border: none;
 }
 
 .main {
@@ -99,12 +102,9 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: calc(100vw - 40px);
+
   max-width: 540px;
-  min-width: 300px;
+
   gap: 20px;
 }
 
@@ -112,10 +112,8 @@ p {
   background-color: transparent;
 }
 
-
-
 .modal-content {
-  margin-top: 120px;
+  margin-top: -70px;
   scale: 0.65;
   align-items: center;
   background-color: transparent;
@@ -123,21 +121,19 @@ p {
 }
 
 .navbar {
-  margin-top: 10px;
-  min-width: 400px;
-  max-width: none;
+  width: 100%;
 }
 
 .navbar-brand {
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 20px;
+  font-size: 12px;
   color: #e9e8e8;
   margin: 0;
   z-index: 1;
   text-align: center;
-  padding: 10px;
+  padding: 1px;
   z-index: 10;
 }
 
@@ -145,12 +141,12 @@ p {
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 20px;
+  font-size: 12px;
   color: #e9e8e8;
   margin: 0;
   z-index: 1;
   text-align: center;
-  padding: 10px;
+  padding: 1px;
   z-index: 10;
 }
 
@@ -162,7 +158,7 @@ p {
   margin: 0;
   z-index: 1;
   text-align: center;
-  padding: 10px;
+  padding: 3px;
   z-index: 10;
 }
 /* Pokémon List Styles */
@@ -179,7 +175,7 @@ p {
 }
 
 .pokemon-list::-webkit-scrollbar {
-  display: none;
+  display: 12px;
 }
 
 .pokemon-list li {
@@ -193,17 +189,19 @@ p {
 .pokeball-placeholder {
   background-image: url("/images/pokeball2x.webp");
   background-position: center;
+  width: 10vw; /* Adjust this value to your preference */
+  padding-top: 20vw; /* Maintain aspect ratio */
   display: flex;
   flex-direction: column;
   position: relative;
   justify-content: center;
   align-items: center;
-  background-size: 80%;
+  background-size: 70%;
   background-repeat: no-repeat;
   width: 100%;
   padding-top: 80%;
   z-index: 0;
-  margin-top: -175px;
+  margin-top: -55px;
 }
 
 .pokemonInfo {
@@ -225,10 +223,9 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #eeeeee56;
+  background-color: transparent;
   padding-top: 75px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: calc(100vw - 40px);
   max-width: 540px;
   min-width: 300px;
@@ -243,16 +240,17 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: scale(2);
+  scale: 2.5;
   z-index: 15;
 }
 
 .poketext {
+  font-size: 50px;
+  font-weight: 600;
   font-family: "bitcount-mono-single-circle", sans-serif;
-  font-size: 0px;
   position: absolute;
   text-align: center;
-  padding: 10px;
+  margin-top: -100px;
 }
 
 .threed-text-active .poketext-effect-top {
@@ -273,7 +271,6 @@ p {
   color: #000000;
   z-index: 10;
 }
-
 
 #findPokemonSection {
   position: relative;
@@ -309,12 +306,12 @@ p {
 
 #pokedextext {
   position: absolute;
-  top: 380px;
-  left: 570px;
+  top: 85px;
+  left: 200px;
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 200;
   font-style: normal;
-  font-size: 170px;
+  font-size: 80px;
   color: #f4ff5a;
   margin: 0;
   z-index: 1;
@@ -325,12 +322,12 @@ p {
 
 #pokedextext2 {
   position: absolute;
-  top: 380px;
-  left: 570px;
+  top: 85px;
+  left: 200px;
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 170px;
+  font-size: 80px;
   color: #ff0000;
   margin: 0;
   z-index: 1;
@@ -342,12 +339,12 @@ p {
 #pokedextext3 {
   text-shadow: 3px 3px 0px #000000;
   position: absolute;
-  top: 385px;
-  left: 575px;
+  top: 90px;
+  left: 200px;
   font-family: "bitcount-mono-single-circle", sans-serif;
   font-weight: 900;
   font-style: normal;
-  font-size: 170px;
+  font-size: 80px;
   color: #000000;
   margin: 0;
   text-align: center;
@@ -364,8 +361,8 @@ p {
 }
 
 #pokemonName.error {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
 /* Pokémon Result Styles */
@@ -374,8 +371,8 @@ p {
   top: 51%;
   left: 50%;
   transform: translate(-50%, -52%);
-  width: 75%;
-  height: 92%; /* Set the height equal to the width */
+  width: 65%;
+  height: 82%; /* Set the height equal to the width */
   text-align: center;
   z-index: 3;
   display: flex;
@@ -394,16 +391,10 @@ p {
   z-index: 16;
 }
 
-#pokemonResult .shadow1 {
-  background-color: rgba(0, 0, 0);
-  z-index: 2; /* Positioned below the pokemonElement */
-}
-
 #pokemonResult img {
   position: relative;
   top: 00%;
-  width: 75%; /* Set image width to 50% */
-
+  width: 65%; /* Set image width to 50% */
   z-index: 3;
 }
 
@@ -427,23 +418,17 @@ p {
   margin-top: 0%;
 }
 
-#info {
-  margin-bottom: 30px;
-  margin: 20px;
-  padding: 20px;
-}
-
 #modal-info {
   background-color: #ffffff;
   margin-bottom: 30px;
   margin: 20px;
   padding: 20px;
 }
-#
+
 /* Media Queries */
 @media (min-width: 250px) {
   .pokemonLogo {
-    transform: scale(0.17);
+    transform: scale(0.3);
   }
   .pokemon-placeholder {
     transform: scale(0.17);
@@ -470,6 +455,24 @@ p {
 
 @media (min-width: 1280px) {
   .pokemonLogo {
-    transform: scale(0.41);
+    transform: scale(0.35);
   }
+}
+
+@media (min-width: 768px) {
+  /* Styles for tablets and larger devices */
+  height: 1000px;
+}
+
+@media (min-width: 1024px) {
+  /* Styles for desktop screens */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 80%;
 }
