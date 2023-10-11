@@ -29,6 +29,14 @@ h1 {
   z-index: 1;
 }
 
+p {
+  margin-top: -20px;
+  font-size: 8vw;
+  font-weight: 900;
+  color: #000000;
+  margin: 2;
+  z-index: 1;
+}
 /* Button Styles */
 .button {
   font-family: "bitcount-mono-single-circle", sans-serif;
@@ -65,6 +73,20 @@ h1 {
   max-width: 100%;  /* This ensures the image doesn't take the full width, adjust as needed */
 }
 
+.detail {
+  font-size: 200%;
+  font-family: "bitcount-mono-single-circle", sans-serif;
+  font-weight: 900;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .list-group-item {
   background-color: transparent;
 }
@@ -86,7 +108,22 @@ h1 {
   gap: 20px;
 }
 
+.modal-backdrop {
+  background-color: transparent;
+}
+
+
+
+.modal-content {
+  margin-top: 120px;
+  scale: 0.65;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
 .navbar {
+  margin-top: 10px;
   min-width: 400px;
   max-width: none;
 }
@@ -104,6 +141,30 @@ h1 {
   z-index: 10;
 }
 
+.nav-item {
+  font-family: "bitcount-mono-single-circle", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: #e9e8e8;
+  margin: 0;
+  z-index: 1;
+  text-align: center;
+  padding: 10px;
+  z-index: 10;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  z-index: 1;
+  text-align: center;
+  padding: 10px;
+  z-index: 10;
+}
 /* Pokémon List Styles */
 .pokemon-list {
   display: flex;
@@ -152,8 +213,7 @@ h1 {
   align-items: center;
   background-color: #006eff62;
   padding: 10px;
-  margin: 10px, 0px, 0px, 0px;
-  margin-top: -40px;
+  margin: px, 0px, 0px, 0px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -178,19 +238,42 @@ h1 {
 
 .pokemonLogo {
   position: relative;
-  margin-top: -150px;
+  margin-top: -50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: scale(0.4);
+  transform: scale(2);
   z-index: 15;
 }
 
 .poketext {
+  font-family: "bitcount-mono-single-circle", sans-serif;
+  font-size: 0px;
   position: absolute;
-  font-size: 50px;
+  text-align: center;
+  padding: 10px;
 }
+
+.threed-text-active .poketext-effect-top {
+  font-weight: 200;
+  color: #f4ff5a;
+  z-index: 13;
+}
+
+.threed-text-active .poketext-effect-middle {
+  font-weight: 600;
+  color: #ff0000;
+  z-index: 12;
+}
+
+.threed-text-active .poketext-effect-bottom {
+  text-shadow: 3px 3px 0px #000000;
+  font-weight: 900;
+  color: #000000;
+  z-index: 10;
+}
+
 
 #findPokemonSection {
   position: relative;
@@ -308,7 +391,7 @@ h1 {
   border-radius: 50%;
   padding: 0px;
   box-sizing: border-box; /* This will include padding in the width and height */
-  z-index: 2;
+  z-index: 16;
 }
 
 #pokemonResult .shadow1 {
@@ -350,66 +433,43 @@ h1 {
   padding: 20px;
 }
 
-#navbar-font {
-  font-family: "bitcount-mono-single-circle", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 20px;
-  color: #e9e8e8;
-  margin: 0;
-  z-index: 1;
-  text-align: center;
-  padding: 10px;
-  z-index: 10;
+#modal-info {
+  background-color: #ffffff;
+  margin-bottom: 30px;
+  margin: 20px;
+  padding: 20px;
 }
-/* Adjust the scale for medium screens */
-
+#
+/* Media Queries */
 @media (min-width: 250px) {
   .pokemonLogo {
-    transform: scale(0.17); /* Adjusted scaling for medium screens */
+    transform: scale(0.17);
+  }
+  .pokemon-placeholder {
+    transform: scale(0.17);
   }
 }
+
 @media (min-width: 368px) {
   .pokemonLogo {
-    transform: scale(0.25); /* Adjusted scaling for medium screens */
+    transform: scale(0.25);
+  }
+  .pokemon-placeholder {
+    transform: scale(0.15);
   }
 }
 
-/* Adjust the scale for larger screens */
 @media (min-width: 465px) {
   .pokemonLogo {
-    transform: scale(0.3); /* Adjusted scaling for larger screens */
+    transform: scale(0.3);
+  }
+  .pokemon-placeholder {
+    transform: scale(0.3);
   }
 }
 
-/* You can continue adding more breakpoints as necessary */
 @media (min-width: 1280px) {
   .pokemonLogo {
-    transform: scale(1); /* Adjusted scaling for even larger screens */
-  }
-}
-
-@media (min-width: 250px) {
-  .pokemon-placeholder {
-    transform: scale(0.17); /* Adjusted scaling for medium screens */
-  }
-}
-@media (min-width: 368px) {
-  .pokemon-placeholder {
-    transform: scale(0.15); /* Adjusted scaling for medium screens */
-  }
-}
-
-/* Adjust the scale for larger screens */
-@media (min-width: 465px) {
-  .pokemon-placeholder {
-    transform: scale(0.3); /* Adjusted scaling for larger screens */
-  }
-}
-
-/* You can continue adding more breakpoints as necessary */
-@media (min-width: 1280px) {
-  .pokemonLogo {
-    transform: scale(0.41); /* Adjusted scaling for even larger screens */
+    transform: scale(0.41);
   }
 }

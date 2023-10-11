@@ -62,6 +62,31 @@ let pokemonRepository = (function () {
     return listItem;
   }
 
+  function displayPokemonInfo(pokemon) {
+    const modalBody = document.querySelector(".modal-body");
+
+    modalBody.innerHTML = `
+        <div class="poketext threed-text-active poketext-effect-top">${
+          pokemon.name
+        }</div>
+        <div class="poketext poketext-effect-middle">${pokemon.name}</div>
+        <div class="poketext poketext-effect-bottom">${pokemon.name}</div>
+        <br>
+        <div class="d-flex justify-content-center mb-3">
+            <img src="${pokemon.imageUrl}" alt="${
+      pokemon.name
+    }" class="img-fluid">
+        </div>
+        <div class="details-container">
+            <div class="detail"><strong>Height:</strong> ${pokemon.height}</div>
+            <div class="detail"><strong>Weight:</strong> ${pokemon.weight}</div>
+            <div class="detail"><strong>Abilities:</strong> ${pokemon.abilities
+              .map((ability) => ability.ability.name)
+              .join(", ")}</div>
+        </div>
+    `;
+  }
+
 
   function loadList() {
     return fetch(apiUrl)
@@ -85,10 +110,12 @@ let pokemonRepository = (function () {
     return fetch(url)
       .then((response) => response.json())
       .then((details) => {
+        console.log(details);
         item.sprites = details.sprites.front_default;
         item.imageUrl = details.sprites.other["official-artwork"].front_default;
         item.height = details.height;
         item.types = details.types.map((type) => type.type.name);
+        item.abilities = details.abilities; // Add this line
       })
       .catch((e) => {
         console.error(e);
@@ -141,55 +168,7 @@ let pokemonRepository = (function () {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
-      const resultDiv = document.getElementById("pokemonResult");
-      resultDiv.innerHTML = "";
-
-      // Create two new div elements for the shadows
-      const shadowElement1 = document.createElement("div");
-      const shadowElement2 = document.createElement("div");
-
-      // Add classes to the shadow elements for styling in CSS
-      shadowElement1.classList.add("shadow1");
-      shadowElement2.classList.add("shadow2");
-
-      // Create the other elements
-      const imageElement = document.createElement("img");
-      const pokemonElement = document.createElement("div");
-      const nameElement = document.createElement("p");
-      const heightElement = document.createElement("p");
-      const typesElement = document.createElement("p");
-
-      imageElement.src = `${pokemon.imageUrl}`;
-      nameElement.textContent = `${pokemon.name.toUpperCase()}`;
-      heightElement.textContent = `Height: ${pokemon.height}`;
-      typesElement.textContent = `Types: ${pokemon.types.join(", ")}`;
-
-      // Append the shadow elements to the resultDiv first, so they appear below the other elements
-      resultDiv.appendChild(shadowElement1);
-      resultDiv.appendChild(shadowElement2);
-
-      // Append the other elements to the resultDiv
-      pokemonElement.appendChild(imageElement);
-      pokemonElement.appendChild(nameElement);
-      pokemonElement.appendChild(heightElement);
-      pokemonElement.appendChild(typesElement);
-      resultDiv.appendChild(pokemonElement);
-
-      resultDiv.style.display = "block"; // Show the result div
-
-      // Adding event listener to hide details on 'esc' key press
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && resultDiv.style.display === "block") {
-          hideDetails();
-        }
-      });
-
-      // Adding event listener to hide details when clicking outside of the element
-      window.addEventListener("click", (e) => {
-        if (e.target !== resultDiv && !resultDiv.contains(e.target)) {
-          hideDetails();
-        }
-      });
+      displayPokemonInfo(pokemon);
     });
   }
 
@@ -204,7 +183,8 @@ let pokemonRepository = (function () {
     }
 
     return pokemonList.filter(
-      pokemon => pokemon.name.toLowerCase() === name.toLowerCase());
+      (pokemon) => pokemon.name.toLowerCase() === name.toLowerCase()
+    );
   }
 
   return {
@@ -215,10 +195,8 @@ let pokemonRepository = (function () {
     loadList,
     loadDetails,
     showDetails: showDetails,
-    displayPokemonDetails: displayPokemonDetails // Add this line
-};
-
-  
+    displayPokemonDetails: displayPokemonDetails, // Add this line
+  };
 })();
 
 document
@@ -250,7 +228,6 @@ document
       });
     }
   });
-
 
 pokemonRepository.loadList().then(function () {
   let pokemonAll = pokemonRepository.getAll();
@@ -301,5 +278,3 @@ pokemonRepository.loadList().then(function () {
     }
   });
 });
-
-
