@@ -92,7 +92,7 @@ p {
 }
 
 .main {
-  background-image: url("/images/vanilla_base.webp");
+  background-image: url("/images/vanilla_base.png");
   background-size: 540px 1170px;
   background-repeat: no-repeat;
   position: relative;
